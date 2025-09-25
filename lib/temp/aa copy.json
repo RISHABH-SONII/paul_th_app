@@ -1,0 +1,236 @@
+{
+  "room": {
+    "_id": "679396de04eb507dde7bdd21",
+    "people": [
+      {
+        "_id": "67938b94ec66723bee7bc82c",
+        "ID": 14,
+        "firstName": "meme",
+        "lastName": "memem",
+        "level": "standard",
+        "phone": "",
+        "username": "jjjj",
+        "favorites": [],
+        "images": [],
+        "imageUrl": [],
+        "lastOnline": 1737746247218,
+        "interests": [],
+        "address": "",
+        "isBlocked": false,
+        "gender": "",
+        "showGender": "",
+        "showInterests": false,
+        "user_DOB": "1970-01-01T00:00:00.000Z",
+        "maxDistance": 0,
+        "lastmsg": 0,
+        "meta": {
+          "emailVerified": false,
+          "phoneNumberVerified": false
+        },
+        "version": 0,
+        "createdAt": "2025-01-24T12:46:12.785Z",
+        "updatedAt": "2025-01-24T19:17:27.219Z"
+      },
+      {
+        "_id": "678ad45b46b01c932b689ec6",
+        "ID": 12,
+        "firstName": "champion",
+        "lastName": "themason",
+        "level": "standard",
+        "phone": "+1123456789",
+        "username": "toto papap",
+        "favorites": [],
+        "images": [
+          "678ad5bd46b01c932b689edd",
+          "678ae20f32ab33bc3c610ab1",
+          "678ae28d32ab33bc3c610abc",
+          "678ae2f932ab33bc3c610ac3",
+          "678c4f82b31ce6cae14d27b6",
+          "678c4f9eb31ce6cae14d27bd"
+        ],
+        "imageUrl": [],
+        "lastOnline": 1737745482865,
+        "interests": [
+          "Architecture",
+          "Music",
+          "Language",
+          "Photography"
+        ],
+        "address": "",
+        "isBlocked": false,
+        "gender": "woman",
+        "showGender": "",
+        "showInterests": true,
+        "user_DOB": "2000-03-11T23:00:00.000Z",
+        "maxDistance": 20,
+        "lastmsg": 0,
+        "meta": {
+          "emailVerified": true,
+          "phoneNumberVerified": false
+        },
+        "version": 0,
+        "createdAt": "2025-01-17T22:06:19.600Z",
+        "updatedAt": "2025-01-24T19:04:42.866Z",
+        "ageRange": {
+          "min": "20",
+          "max": "50"
+        },
+        "coordinates": {
+          "latitude": "51.507400000000004",
+          "longitude": "-0.12779999999999794",
+          "address": "Senlis , France "
+        },
+        "about": "toutes choses sont bonnes oh",
+        "fullName": ""
+      }
+    ],
+    "title": "aziopi",
+    "isGroup": true,
+    "lastUpdate": "2025-01-24T21:42:45.528Z",
+    "lastAuthor": "678ad45b46b01c932b689ec6",
+    "lastMessage": "67940955d4a01140a2af4dc4",
+    "messages": [
+      {
+        "_id": "679396fe04eb507dde7bdd52",
+        "author": {
+          "_id": "67938b94ec66723bee7bc82c",
+          "ID": 14,
+          "firstName": "meme",
+          "lastName": "memem",
+          "level": "standard",
+          "phone": "",
+          "username": "jjjj",
+          "favorites": [],
+          "images": [],
+          "imageUrl": [],
+          "tagLine": "New ROAR User",
+          "lastOnline": 1737746247218,
+          "interests": [],
+          "address": "",
+          "isBlocked": false,
+          "gender": "",
+          "showGender": "",
+          "showInterests": false,
+          "user_DOB": "1970-01-01T00:00:00.000Z",
+          "maxDistance": 0,
+          "lastmsg": 0,
+          "meta": {
+            "emailVerified": false,
+            "phoneNumberVerified": false
+          },
+          "version": 0,
+          "createdAt": "2025-01-24T12:46:12.785Z",
+          "updatedAt": "2025-01-24T19:17:27.219Z"
+        },
+        "content": "maince",
+        "room": "679396de04eb507dde7bdd21",
+        "date": "2025-01-24T13:34:54.033Z",
+        "createdAt": "2025-01-24T13:34:54.036Z",
+        "updatedAt": "2025-01-24T13:34:54.036Z",
+        "__v": 0
+      },
+      {
+        "_id": "6793970b04eb507dde7bdd89",
+        "author": {
+          "_id": "67938b94ec66723bee7bc82c",
+          "ID": 14,
+          "firstName": "meme",
+          "lastName": "memem",
+          "level": "standard",
+          "phone": "",
+          "username": "jjjj",
+          "favorites": [],
+          "images": [],
+          "imageUrl": [],
+          "tagLine": "New ROAR User",
+          "lastOnline": 1737746247218,
+          "interests": [],
+          "address": "",
+          "isBlocked": false,
+          "gender": "",
+          "showGender": "",
+          "showInterests": false,
+          "user_DOB": "1970-01-01T00:00:00.000Z",
+          "maxDistance": 0,
+          "lastmsg": 0,
+          "meta": {
+            "emailVerified": false,
+            "phoneNumberVerified": false
+          },
+          "version": 0,
+          "createdAt": "2025-01-24T12:46:12.785Z",
+          "updatedAt": "2025-01-24T19:17:27.219Z"
+        },
+        "content": "comment portez vous ?",
+        "room": "679396de04eb507dde7bdd21",
+        "date": "2025-01-24T13:35:07.736Z",
+        "createdAt": "2025-01-24T13:35:07.738Z",
+        "updatedAt": "2025-01-24T13:35:07.738Z",
+        "__v": 0
+      },
+      {
+        "_id": "679398fe1c63de84459a9cfd",
+        "author": {
+          "_id": "678ad45b46b01c932b689ec6",
+          "ID": 12,
+          "firstName": "champion",
+          "lastName": "themason",
+          "level": "standard",
+          "phone": "+1123456789",
+          "username": "toto papap",
+          "favorites": [],
+          "images": [
+            "678ad5bd46b01c932b689edd",
+            "678ae20f32ab33bc3c610ab1",
+            "678ae28d32ab33bc3c610abc",
+            "678ae2f932ab33bc3c610ac3",
+            "678c4f82b31ce6cae14d27b6",
+            "678c4f9eb31ce6cae14d27bd"
+          ],
+          "imageUrl": [],
+          "tagLine": "New ROAR User",
+          "lastOnline": 1737745482865,
+          "interests": [
+            "Architecture",
+            "Music",
+            "Language",
+            "Photography"
+          ],
+          "address": "",
+          "isBlocked": false,
+          "gender": "woman",
+          "showGender": "",
+          "showInterests": true,
+          "user_DOB": "2000-03-11T23:00:00.000Z",
+          "maxDistance": 20,
+          "lastmsg": 0,
+          "meta": {
+            "emailVerified": true,
+            "phoneNumberVerified": false
+          },
+          "version": 0,
+          "createdAt": "2025-01-17T22:06:19.600Z",
+          "updatedAt": "2025-01-24T19:04:42.866Z",
+          "ageRange": {
+            "min": "20",
+            "max": "50"
+          },
+          "coordinates": {
+            "latitude": "51.507400000000004",
+            "longitude": "-0.12779999999999794",
+            "address": "Senlis , France "
+          },
+          "about": "toutes choses sont bonnes oh",
+          "fullName": ""
+        },
+        "content": "Je memememememrmfkfkfkfkfkfkkg",
+        "room": "679396de04eb507dde7bdd21",
+        "date": "2025-01-24T13:43:26.015Z",
+        "createdAt": "2025-01-24T13:43:26.024Z",
+        "updatedAt": "2025-01-24T13:43:26.024Z",
+        "__v": 0
+      },
+    ],
+    "images": []
+  }
+}

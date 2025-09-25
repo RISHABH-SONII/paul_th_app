@@ -1,0 +1,92 @@
+[
+    {
+        "candidate": "candidate: 1642113331 1 udp 2122129151 192.0.0.4 51176 typ host generation 0 ufrag yWON network-id 5 network-cost 900",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 540492440 1 udp 2121998079 127.0.0.1 48244 typ host generation 0 ufrag yWON network-id 1",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 1799425553 1 udp 2122262783 2a04:cec0: 114d:a6ca: 0: 67: 3a4c: 901 52042 typ host generation 0 ufrag yWON network-id 3 network-cost 900",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 823873552 1 udp 2122071295 : : 1 47984 typ host generation 0 ufrag yWON network-id 2",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 1642113331 1 udp 2122129151 192.0.0.4 45418 typ host generation 0 ufrag yWON network-id 5 network-cost 900",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 540492440 1 udp 2121998079 127.0.0.1 53304 typ host generation 0 ufrag yWON network-id 1",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 1799425553 1 udp 2122262783 2a04:cec0: 114d:a6ca: 0: 67: 3a4c: 901 33254 typ host generation 0 ufrag yWON network-id 3 network-cost 900",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 823873552 1 udp 2122071295 : : 1 56530 typ host generation 0 ufrag yWON network-id 2",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 4195727589 1 udp 1686055167 2a04:cec0: 114d:a6ca: 0: 67: 3a4c: 901 33254 typ srflx raddr 2a04:cec0: 114d:a6ca: 0: 67: 3a4c: 901 rport 33254 generation 0 ufrag yWON network-id 3 network-cost 900",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 4195727589 1 udp 1686055167 2a04:cec0: 114d:a6ca: 0: 67: 3a4c: 901 52042 typ srflx raddr 2a04:cec0: 114d:a6ca: 0: 67: 3a4c: 901 rport 52042 generation 0 ufrag yWON network-id 3 network-cost 900",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 3738372543 1 udp 1685921535 176.179.150.244 10216 typ srflx raddr 192.0.0.4 rport 51176 generation 0 ufrag yWON network-id 5 network-cost 900",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 3738372543 1 udp 1685921535 176.179.150.244 10090 typ srflx raddr 192.0.0.4 rport 45418 generation 0 ufrag yWON network-id 5 network-cost 900",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 3734869516 1 tcp 1518018303 127.0.0.1 50943 typ host tcptype passive generation 0 ufrag yWON network-id 1",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 692085594 1 tcp 1518217471 2a04:cec0: 5cf: 5959: 0: 67: 3a37:b501 9 typ host tcptype active generation 0 ufrag yWON network-id 4 network-cost 900",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 3484517508 1 tcp 1518091519 : : 1 49833 typ host tcptype passive generation 0 ufrag yWON network-id 2",
+        "sdpMid": "0",
+        "sdpMlineIndex": 0
+    },
+    {
+        "candidate": "candidate: 3734869516 1 tcp 1518018303 127.0.0.1 47641 typ host tcptype passive generation 0 ufrag yWON network-id 1",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 692085594 1 tcp 1518217471 2a04:cec0: 5cf: 5959: 0: 67: 3a37:b501 9 typ host tcptype active generation 0 ufrag yWON network-id 4 network-cost 900",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    },
+    {
+        "candidate": "candidate: 3484517508 1 tcp 1518091519 : : 1 60007 typ host tcptype passive generation 0 ufrag yWON network-id 2",
+        "sdpMid": "1",
+        "sdpMlineIndex": 1
+    }
+]

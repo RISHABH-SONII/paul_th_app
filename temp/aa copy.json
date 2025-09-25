@@ -1,0 +1,202 @@
+{
+  "sdp": {
+    "version": 0,
+    "origin": {
+      "username": "-",
+      "sessionId": 2010627491675337811,
+      "sessionVersion": 2,
+      "netType": "IN",
+      "ipVer": 4,
+      "address": "127.0.0.1"
+    },
+    "name": "-",
+    "timing": {
+      "start": 0,
+      "stop": 0
+    },
+    "groups": [
+      {
+        "type": "BUNDLE",
+        "mids": 0
+      }
+    ],
+    "extmapAllowMixed": [
+      {
+        "extmap-allow-mixed": "extmap-allow-mixed"
+      }
+    ],
+    "msidSemantic": {
+      "semantic": "WMS",
+      "token": "6a559e78-a6dd-4f20-9180-c722bb424063"
+    },
+    "media": [
+      {
+        "rtp": [
+          {
+            "payload": 111,
+            "codec": "opus",
+            "rate": 48000,
+            "encoding": 2
+          },
+          {
+            "payload": 63,
+            "codec": "red",
+            "rate": 48000,
+            "encoding": 2
+          },
+          {
+            "payload": 9,
+            "codec": "G722",
+            "rate": 8000,
+            "encoding": null
+          },
+          {
+            "payload": 102,
+            "codec": "ILBC",
+            "rate": 8000,
+            "encoding": null
+          },
+          {
+            "payload": 0,
+            "codec": "PCMU",
+            "rate": 8000,
+            "encoding": null
+          },
+          {
+            "payload": 8,
+            "codec": "PCMA",
+            "rate": 8000,
+            "encoding": null
+          },
+          {
+            "payload": 13,
+            "codec": "CN",
+            "rate": 8000,
+            "encoding": null
+          },
+          {
+            "payload": 110,
+            "codec": "telephone-event",
+            "rate": 48000,
+            "encoding": null
+          },
+          {
+            "payload": 126,
+            "codec": "telephone-event",
+            "rate": 8000,
+            "encoding": null
+          }
+        ],
+        "fmtp": [
+          {
+            "payload": 111,
+            "config": "minptime=10;useinbandfec=1"
+          },
+          {
+            "payload": 63,
+            "config": "111/111"
+          }
+        ],
+        "type": "audio",
+        "port": 9,
+        "protocol": "UDP/TLS/RTP/SAVPF",
+        "payloads": "111 63 9 102 0 8 13 110 126",
+        "connection": {
+          "version": 4,
+          "ip": "0.0.0.0"
+        },
+        "rtcp": {
+          "port": 9,
+          "netType": "IN",
+          "ipVer": 4,
+          "address": "0.0.0.0"
+        },
+        "iceUfrag": "2rT9",
+        "icePwd": "+uksaCgxETV6baCzyF/XE+w5",
+        "iceOptions": "trickle",
+        "fingerprint": {
+          "type": "sha-256",
+          "hash": "73:C0:4F:B9:E4:F2:A3:D0:B8:0E:59:74:5E:3B:46:BB:C1:AA:3C:C8:37:88:AE:CE:46:9C:65:6D:2E:E2:21:CF"
+        },
+        "setup": "active",
+        "mid": 0,
+        "ext": [
+          {
+            "value": 1,
+            "direction": null,
+            "uri": "urn:ietf:params:rtp-hdrext:ssrc-audio-level",
+            "config": null
+          },
+          {
+            "value": 2,
+            "direction": null,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time",
+            "config": null
+          },
+          {
+            "value": 3,
+            "direction": null,
+            "uri": "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01",
+            "config": null
+          },
+          {
+            "value": 4,
+            "direction": null,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid",
+            "config": null
+          }
+        ],
+        "direction": "sendrecv",
+        "msid": "6a559e78-a6dd-4f20-9180-c722bb424063 141da92e-7b9e-43be-9433-7e74243ff42f",
+        "rtcpMux": "rtcp-mux",
+        "rtcpFb": [
+          {
+            "payload": 111,
+            "type": "transport-cc",
+            "subtype": null
+          }
+        ],
+        "ssrcs": [
+          {
+            "id": 1757940189,
+            "attribute": "cname",
+            "value": "gi1QeH753nU6zV8Z"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "candidate": "candidate:716617834 1 udp 2122194687 10.188.175.254 42441 typ host generation 0 ufrag 2rT9 network-id 3 network-cost 10",
+      "sdpMid": "0",
+      "sdpMlineIndex": 0
+    },
+    {
+      "candidate": "candidate:1598367666 1 udp 2122063615 127.0.0.1 49162 typ host generation 0 ufrag 2rT9 network-id 1",
+      "sdpMid": "0",
+      "sdpMlineIndex": 0
+    },
+    {
+      "candidate": "candidate:1918694249 1 udp 2122136831 ::1 39559 typ host generation 0 ufrag 2rT9 network-id 2",
+      "sdpMid": "0",
+      "sdpMlineIndex": 0
+    },
+    {
+      "candidate": "candidate:1863677482 1 udp 1685987071 46.193.57.61 42441 typ srflx raddr 10.188.175.254 rport 42441 generation 0 ufrag 2rT9 network-id 3 network-cost 10",
+      "sdpMid": "0",
+      "sdpMlineIndex": 0
+    },
+    {
+      "candidate": "candidate:562742570 1 tcp 1518083839 127.0.0.1 45299 typ host tcptype passive generation 0 ufrag 2rT9 network-id 1",
+      "sdpMid": "0",
+      "sdpMlineIndex": 0
+    },
+    {
+      "candidate": "candidate:210964977 1 tcp 1518157055 ::1 36651 typ host tcptype passive generation 0 ufrag 2rT9 network-id 2",
+      "sdpMid": "0",
+      "sdpMlineIndex": 0
+    }
+  ],
+  "type": "answer"
+}

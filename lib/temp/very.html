@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img,
+        .card video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>User Grid</h1>
+    <div class="grid" id="user-grid">
+        <!-- Users will be dynamically inserted here -->
+    </div>
+
+    <script>
+        // Replace with your API endpoint and Bearer token
+        const API_URL = 'http://roarbeauty.adidome.com/api/fake/12/getusersmy?start=0&limit=500';
+        // const BEARER_TOKEN = '';
+        // const BEARER_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiX2lkIjoiNjdiMWYzZDI4NDk2NzVhZDQyM2ZmMzlhIiwiZW1haWwiOiJWYWxlbnRpbmU0NkB5YWhvby5jb20iLCJsZXZlbCI6InNlZWQiLCJmaXJzdE5hbWUiOiJSb2dlcnMiLCJsYXN0TmFtZSI6Ikd1dG1hbm4iLCJ1c2VybmFtZSI6IlJvc2FsZWVfR3JhZHkiLCJmdWxsTmFtZSI6IlJvZ2VycyBHdXRtYW5uIiwicGhvbmUiOiIrMTM3MTM3MTM4MjQiLCJpc0Jsb2NrZWQiOmZhbHNlLCJsYXN0T25saW5lIjoxNzIwMzU1MTkzNzM1LCJ0YWdMaW5lIjoiTmV3IFJPQVIgVXNlciIsInVzZXJfRE9CIjoiMjAyNC0wOC0xMFQwMDoyNjo1My4zODBaIiwiZmF2b3JpdGVzIjpbXSwiaW1hZ2VzIjpbIjY3YWJkMjkwNmE5Yzc5NGJhYTE5M2IzNSIsIjY3YWJkMjkxNmE5Yzc5NGJhYTE5M2I5NSIsIjY3YjEzOGUxMWE3NGFhYmUyZTQ4N2M0ZiJdLCJpbWFnZVVybCI6WyI2N2FiZDI5MjZhOWM3OTRiYWExOTNiY2QiXSwiaW50ZXJlc3RzIjpbImludGVyZmFjZSIsInN5c3RlbSIsImhhcmQgZHJpdmUiLCJzeXN0ZW0iLCJmaXJld2FsbCJdLCJhZGRyZXNzIjoiODMxIFcgQnJvYWR3YXkgU3RyZWV0IiwiY29vcmRpbmF0ZXMiOnsibGF0aXR1ZGUiOi02OC45NTczLCJsb25naXR1ZGUiOi01LjYyMTgsImFkZHJlc3MiOiJQb3J0IEN5ZG5leSwgU2luZ2Fwb3JlIn0sImdlbmRlciI6Im1hbiIsInNob3dHZW5kZXIiOiJ3b21hbiIsInNob3dJbnRlcmVzdHMiOmZhbHNlLCJtZXRhIjp7ImVtYWlsVmVyaWZpZWQiOnRydWUsInBob25lTnVtYmVyVmVyaWZpZWQiOnRydWV9LCJzaG93QWdlIjp7fSwiYWdlUmFuZ2UiOnsibWluIjoyNSwibWF4IjozNn0sIm1heERpc3RhbmNlIjo2NiwiZGlzdGFuY2VCVyI6bnVsbCwiYWJvdXQiOiJWYWN1dXMgdml2byBjZXJubyBjb2dvIGNydWVudHVzIGFuc2VyIGNvbXBlbGxvIGF2YXJpdGlhIGNvbmljaW8uIiwiaXRlbWFjY2VzcyI6eyJfaWQiOiI2N2FiY2Q4YjZhOWM3OTRiYWExOTNhNGMiLCJJRCI6MSwiZnJlZV9yYWRpdXMiOjUwLCJwYWlkX3JhZGl1cyI6MTAwLCJmcmVlX3N3aXBlcyI6NSwiYWNjZXNzZXMiOnsicHJlbWl1bSI6bnVsbH0sImNyZWF0ZWRBdCI6IjIwMjUtMDItMTFUMjI6MjI6MDMuMDg0WiIsInVwZGF0ZWRBdCI6IjIwMjUtMDItMTFUMjI6MjI6MDMuMDg0WiIsIl9fdiI6MH0sImlhdCI6MTczOTc4MTk1NywiZXhwIjoxNzQ0OTY1OTU3fQ.GPXOtb68yjb3CeVc_K3Y895EoIwFxGY_bA9CkAqNxtU';
+        const BEARER_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiX2lkIjoiNjdiMTM4NjIxYTc0YWFiZTJlNDg3YzNlIiwiZW1haWwiOiJ0cml2aWFAdHJpdmlhLmNvbSIsImxldmVsIjoic3RhbmRhcmQiLCJmaXJzdE5hbWUiOiJ0cml2aWEiLCJsYXN0TmFtZSI6InRyaXZpYSIsInVzZXJuYW1lIjoidHJpdmlhbCIsImZ1bGxOYW1lIjoidHJpdmlhIHRyaXZpYSIsInBob25lIjoiKzQ0OTg3NTY0MTIzIiwiaXNCbG9ja2VkIjpmYWxzZSwibGFzdE9ubGluZSI6MTczOTY2NzU1NDM0NSwidGFnTGluZSI6Ik5ldyBST0FSIFVzZXIiLCJ1c2VyX0RPQiI6IjIwMDAtMDktMTJUMDA6MDA6MDAuMDAwWiIsImZhdm9yaXRlcyI6W10sImltYWdlcyI6WyI2N2IxM2Q4OTFhNzRhYWJlMmU0ODdjNjgiXSwiaW1hZ2VVcmwiOlsiNjdiMTM4ZTExYTc0YWFiZTJlNDg3YzRmIl0sImludGVyZXN0cyI6WyJBcmNoaXRlY3R1cmUiLCJQaG90b2dyYXBoeSIsIk1vdmllIl0sImFkZHJlc3MiOiIiLCJjb29yZGluYXRlcyI6eyJsYXRpdHVkZSI6IjQ3Ljc2NDU1OTMiLCJsb25naXR1ZGUiOiItMy4zNDU5ODQ2IiwiYWRkcmVzcyI6IkxhbmVzdGVyICwgQnJldGFnbmUsIEZyYW5jZSwgNTY2MDAifSwiZ2VuZGVyIjoid29tYW4iLCJzaG93R2VuZGVyIjoid29tYW4iLCJzaG93SW50ZXJlc3RzIjp0cnVlLCJtZXRhIjp7ImVtYWlsVmVyaWZpZWQiOnRydWUsInBob25lTnVtYmVyVmVyaWZpZWQiOmZhbHNlfSwic2hvd0FnZSI6e30sImFnZVJhbmdlIjp7Im1pbiI6IjIwIiwibWF4IjoiNTAifSwibWF4RGlzdGFuY2UiOjIwLCJkaXN0YW5jZUJXIjpudWxsLCJhYm91dCI6ImplIHN1aXMgYmllbiBsYSBhY3R1ZWxsZW1lbnQiLCJpdGVtYWNjZXNzIjp7Il9pZCI6IjY3YWJjZDhiNmE5Yzc5NGJhYTE5M2E0YyIsIklEIjoxLCJmcmVlX3JhZGl1cyI6NTAsInBhaWRfcmFkaXVzIjoxMDAsImZyZWVfc3dpcGVzIjo1LCJhY2Nlc3NlcyI6eyJwcmVtaXVtIjpudWxsfSwiY3JlYXRlZEF0IjoiMjAyNS0wMi0xMVQyMjoyMjowMy4wODRaIiwidXBkYXRlZEF0IjoiMjAyNS0wMi0xMVQyMjoyMjowMy4wODRaIiwiX192IjowfSwiaWF0IjoxNzM5NzA4NDUyLCJleHAiOjE3NDQ4OTI0NTJ9.xdK7vgHiHIwRhG1uiEk0eJcXVY0K8q8F9HQKdUIa1Co';
+
+        // Fetch users from the API
+        async function fetchUsers() {
+            try {
+                const response = await fetch(API_URL, {
+                    headers: {
+                        'Authorization': `Bearer ${BEARER_TOKEN}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch users');
+                }
+
+                const data = await response.json();
+                console.log(data);
+
+                displayUsers(data.data);
+            } catch (error) {
+                console.error('Error fetching users:', error);
+            }
+        }
+
+        // Display users in the grid
+        function displayUsers(users) {
+            const grid = document.getElementById('user-grid');
+            grid.innerHTML = ''; // Clear existing content
+
+            users.forEach(user => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                // Display the first image/video from the 'images' array
+                const media = user.images && user.images.length > 0 ? user.images[0] : null;
+                const mediaElement = media ?
+                    (`${media}`.includes("fed") ?
+                        `<video controls><source src="http://roarbeauty.adidome.com/api/videos/${media}" type="video/mp4">Your browser does not support the video tag.</video>` :
+                        `<img src="http://roarbeauty.adidome.com/api/imagesc/${media}" alt="${user.username}'s image">`) :
+                    '<p>No media available</p>';
+
+                card.innerHTML = `
+                    ${mediaElement}
+                    <h3>${user.username}</h3>
+                    <p>ID: ${user._id}</p>
+                    <p>resid: ${(user.images)[0]}</p>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Fetch users when the page loads
+        window.onload = fetchUsers;
+    </script>
+</body>
+
+</html>

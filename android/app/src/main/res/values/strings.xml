@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ONLY MALE/MEN</string>
+ 
+<string name="facebook_app_id">562013580021680</string>
+<string name="fb_login_protocol_scheme">fb562013580021680</string>
+<string name="facebook_client_token">d97e905bcbd9298330269c1111e608df</string>
+
+</resources>

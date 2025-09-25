@@ -1,0 +1,77 @@
+{
+  "message": {
+    "_id": "67940955d4a01140a2af4dc4",
+    "author": {
+      "_id": "678ad45b46b01c932b689ec6",
+      "ID": 12,
+      "firstName": "champion",
+      "lastName": "themason",
+      "level": "standard",
+      "phone": "+1123456789",
+      "username": "toto papap",
+      "favorites": [],
+      "images": [
+        "678ad5bd46b01c932b689edd",
+        "678ae20f32ab33bc3c610ab1",
+        "678ae28d32ab33bc3c610abc",
+        "678ae2f932ab33bc3c610ac3",
+        "678c4f82b31ce6cae14d27b6",
+        "678c4f9eb31ce6cae14d27bd"
+      ],
+      "imageUrl": [],
+      "tagLine": "New ROAR User",
+      "lastOnline": 1737745482865,
+      "interests": [
+        "Architecture",
+        "Music",
+        "Language",
+        "Photography"
+      ],
+      "address": "",
+      "isBlocked": false,
+      "gender": "woman",
+      "showGender": "",
+      "showInterests": true,
+      "user_DOB": "2000-03-11T23:00:00.000Z",
+      "maxDistance": 20,
+      "lastmsg": 0,
+      "meta": {
+        "emailVerified": true,
+        "phoneNumberVerified": false
+      },
+      "version": 0,
+      "createdAt": "2025-01-17T22:06:19.600Z",
+      "updatedAt": "2025-01-24T19:04:42.866Z",
+      "ageRange": {
+        "min": "20",
+        "max": "50"
+      },
+      "coordinates": {
+        "latitude": "51.507400000000004",
+        "longitude": "-0.12779999999999794",
+        "address": "Senlis , France "
+      },
+      "about": "toutes choses sont bonnes oh",
+      "fullName": ""
+    },
+    "content": "good",
+    "room": "679396de04eb507dde7bdd21",
+    "date": "2025-01-24T21:42:45.528Z",
+    "createdAt": "2025-01-24T21:42:45.530Z",
+    "updatedAt": "2025-01-24T21:42:45.530Z",
+    "__v": 0
+  },
+  "room": {
+    "_id": "679396de04eb507dde7bdd21",
+    "people": [
+      "67938b94ec66723bee7bc82c",
+      "678ad45b46b01c932b689ec6"
+    ],!I/Surface,!D/CCode,!I/CCode,!Buffer,!PipelineWatcher,!gralloc4,!Codec2,!ReflectedParamUpdater,!MetadataUtil
+    "title": "aziopi",
+    "isGroup": true,
+    "__v": 0,
+    "lastAuthor": "678ad45b46b01c932b689ec6",
+    "lastMessage": "67940934d4a01140a2af4dad",
+    "lastUpdate": "2025-01-24T21:42:12.954Z"
+  }
+}

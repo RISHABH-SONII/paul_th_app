@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Allow cache folder (used by share_plus) -->
+    <cache-path name="cache" path="." />
+<!--    <cache-path name="share_plus" path="share_plus/" />-->
+
+    <!-- Allow internal app files (e.g. app_flutter/) -->
+    <files-path name="files" path="." />
+
+    <!-- Optional: external storage -->
+    <external-files-path name="external_files" path="." />
+</paths>
+
+
+
