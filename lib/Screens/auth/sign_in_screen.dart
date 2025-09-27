@@ -267,7 +267,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget _buildTcAcceptWidget() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         RichTextWidget(
           list: [
