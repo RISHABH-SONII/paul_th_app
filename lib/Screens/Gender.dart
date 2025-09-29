@@ -17,9 +17,9 @@ class Gender extends StatefulWidget {
 }
 
 class _GenderState extends State<Gender> {
-  bool male = false;
-  bool cis = false;
-  bool testes = false;
+  bool maleMan = false;
+  // bool cis = false;
+  // bool testes = false;
   bool select = false;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -57,15 +57,15 @@ class _GenderState extends State<Gender> {
                     height: MediaQuery.of(context).size.height * .065,
                     width: MediaQuery.of(context).size.width * .75,
                     child: Center(
-                        child: Text(/*"TRANS MALE"*/ "MALE/MAN".tr().toString(),
+                        child: Text("MALE/MAN".tr().toString(),
                             style: TextStyle(
                                 fontSize: 20,
-                                color: male ? primaryColor : secondryColor,
+                                color: maleMan ? primaryColor : secondryColor,
                                 fontWeight: FontWeight.bold))),
                   ),
                   onPressed: () {
                     setState(() {
-                      male = !male;
+                      maleMan = !maleMan;
                     });
                   },
                 ),
@@ -131,15 +131,13 @@ class _GenderState extends State<Gender> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: InkWell(
-                onTap: (male /*&& cis && testes*/)
+                onTap: (maleMan)
                     ? () {
                         var userGender;
                         userGender = {
-                          'userGender': male
+                          'userGender': maleMan
                               ? "male"
-                              : cis
-                                  ? "cis"
-                                  : "testes",
+                              : "",
                           'showOnProfile': select
                         };
 
@@ -162,7 +160,7 @@ class _GenderState extends State<Gender> {
                     gradient: LinearGradient(
                       begin: Alignment.topRight,
                       end: Alignment.bottomLeft,
-                      colors: (male /*&& cis && testes*/)
+                      colors: (maleMan)
                           ? [
                               primaryColor.withOpacity(.5),
                               primaryColor.withOpacity(.8),
@@ -171,7 +169,7 @@ class _GenderState extends State<Gender> {
                             ]
                           : [white, white],
                     ), // No gradient if username is empty
-                    color: (male /*&& cis && testes*/)
+                    color: (maleMan)
                         ? secondryColor
                         : primaryColor, // Fallback color for empty username
                   ),
@@ -183,7 +181,7 @@ class _GenderState extends State<Gender> {
                       style: TextStyle(
                         fontSize: 15,
                         color:
-                            (male /*&& cis && testes*/) ? white : secondryColor,
+                            (maleMan) ? white : secondryColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

@@ -61,7 +61,7 @@ class _SelectInterestState extends State<SelectInterest> {
                     height: MediaQuery.of(context).size.height * .065,
                     width: MediaQuery.of(context).size.width * .75,
                     child: Center(
-                        child: Text("MAN".tr().toString(),
+                        child: Text("MALE/MAN".tr().toString(),
                             style: TextStyle(
                                 fontSize: 20,
                                 color: man ? primaryColor : secondryColor,
