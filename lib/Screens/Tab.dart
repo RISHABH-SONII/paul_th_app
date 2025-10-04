@@ -437,58 +437,60 @@ class TabbarState extends State<Tabbar> with SingleTickerProviderStateMixin {
     Rks.currentUser = currentUser;
     return WillPopScope(
       onWillPop: _onWillPop,
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: white,
-          automaticallyImplyLeading: false,
-          title: TabBar(
-              controller: _tabController,
-              labelColor: primaryColor,
-              indicatorColor: primaryColor,
-              unselectedLabelColor: Colors.black,
-              isScrollable: false,
-              indicatorSize: TabBarIndicatorSize.label,
-              dividerHeight: 0,
-              tabs: [
-                Tab(
-                    text: "profile",
-                    icon: _buildTabIcon(0, "asset/icons/ic_tab_user.png")),
-                Tab(
-                    text: "swipe",
-                    icon: _buildTabIcon(1, "asset/icons/ic_swipe_tab.png")),
-                Tab(
-                    text: "notifications",
-                    icon: _buildTabIcon(
-                        2, "asset/icons/ic_notification_tab.png")),
-                Tab(
-                    text: "chats",
-                    icon: _buildTabIcon(3, "asset/icons/ic_message_tab.png")),
-              ]),
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: white,
+            automaticallyImplyLeading: false,
+            title: TabBar(
+                controller: _tabController,
+                labelColor: primaryColor,
+                indicatorColor: primaryColor,
+                unselectedLabelColor: Colors.black,
+                isScrollable: false,
+                indicatorSize: TabBarIndicatorSize.label,
+                dividerHeight: 0,
+                tabs: [
+                  Tab(
+                      text: "profile",
+                      icon: _buildTabIcon(0, "asset/icons/ic_tab_user.png")),
+                  Tab(
+                      text: "swipe",
+                      icon: _buildTabIcon(1, "asset/icons/ic_swipe_tab.png")),
+                  Tab(
+                      text: "notifications",
+                      icon: _buildTabIcon(
+                          2, "asset/icons/ic_notification_tab.png")),
+                  Tab(
+                      text: "chats",
+                      icon: _buildTabIcon(3, "asset/icons/ic_message_tab.png")),
+                ]),
+          ),
+          body: currentUser == null
+              ? LoaderWidget()
+              : currentUser!.isBlocked!
+                  ? BlockUser()
+                  : Scaffold(
+                      body: TabBarView(
+                      controller: _tabController,
+                      children: [
+                        Center(
+                            child: Profile(
+                                currentUser!, isPuchased, purchases, items)),
+                        Center(
+                            child: Swipes(currentUser!, users,
+                                isPuchased ? 0 : swipecount, items)),
+                        // Center(child: Welcome()),
+                        Center(
+                            child: NotificationsScreen(
+                          currentUser: currentUser!,
+                        )),
+                        Center(child: HomeScreen(currentUser!)),
+                      ],
+                      physics: NeverScrollableScrollPhysics(),
+                    )),
         ),
-        body: currentUser == null
-            ? LoaderWidget()
-            : currentUser!.isBlocked!
-                ? BlockUser()
-                : Scaffold(
-                    body: TabBarView(
-                    controller: _tabController,
-                    children: [
-                      Center(
-                          child: Profile(
-                              currentUser!, isPuchased, purchases, items)),
-                      Center(
-                          child: Swipes(currentUser!, users,
-                              isPuchased ? 0 : swipecount, items)),
-                      // Center(child: Welcome()),
-                      Center(
-                          child: NotificationsScreen(
-                        currentUser: currentUser!,
-                      )),
-                      Center(child: HomeScreen(currentUser!)),
-                    ],
-                    physics: NeverScrollableScrollPhysics(),
-                  )),
       ),
     );
   }

@@ -150,9 +150,8 @@ class ProfileState extends State<Profile> {
                   style: TextStyle(
                       color: black, fontWeight: FontWeight.w400, fontSize: 15),
                 ),
-                SizedBox(height: height/18),
                 Container(
-                  height: height / 2.5,
+                  height: MediaQuery.of(context).size.height * .40,
                   child: Stack(
                     children: <Widget>[
                       Align(
@@ -361,8 +360,8 @@ class ProfileState extends State<Profile> {
                           child: Container(
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10)),
-                              height: MediaQuery.of(context).size.height/6,
-                              width: MediaQuery.of(context).size.width * .85,
+                              height: height/8,
+                              width: width * .85,
                               child: Container(
                                 decoration:
                                     boxDecorationDefault(color: blackColor),
@@ -434,7 +433,6 @@ class ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
-                SizedBox(height: height/10),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(

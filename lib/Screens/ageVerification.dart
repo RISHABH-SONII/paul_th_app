@@ -235,239 +235,241 @@ class _AgeVerificationScreenState extends State<AgeVerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Screenshot(
-      controller: screenshotController,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Age Verification',
-              style: TextStyle(color: Colors.black)),
-          // backgroundColor: Colors.blue,
-          // foregroundColor: Colors.white,
-        ),
-        body: Column(
-          children: [
-            SizedBox(height: 8),
-            Text(
-              "You may need to try a few times",
-              style: TextStyle(
-                  color: Colors.orange,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 22),
-            ),
-            Expanded(
-              child: Center(
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: MediaQuery.of(context).size.width * 0.8,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey, width: 2),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: FutureBuilder<void>(
-                      future: _initializeControllerFuture,
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.done) {
-                          return _cameraOrImage();
-                        } else {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
-                      },
+    return SafeArea(
+      child: Screenshot(
+        controller: screenshotController,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Age Verification',
+                style: TextStyle(color: Colors.black)),
+            // backgroundColor: Colors.blue,
+            // foregroundColor: Colors.white,
+          ),
+          body: Column(
+            children: [
+              SizedBox(height: 8),
+              Text(
+                "You may need to try a few times",
+                style: TextStyle(
+                    color: Colors.orange,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 22),
+              ),
+              Expanded(
+                child: Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.width * 0.8,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey, width: 2),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: FutureBuilder<void>(
+                        future: _initializeControllerFuture,
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.done) {
+                            return _cameraOrImage();
+                          } else {
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          }
+                        },
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  if (_capturedImage == null) ...[
-                    if (_faces.isEmpty)
-                      Text(
-                        "Please position your face in the frame",
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    if (_faces.isNotEmpty)
-                      Text(
-                        "Face detected! Ready to estimate age",
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                  ],
-                  const SizedBox(height: 16),
-                  _capturedImage == null
-                      ? ElevatedButton(
-                          onPressed: _modelLoaded &&
-                                  !_isProcessing &&
-                                  _faces.isNotEmpty
-                              ? _captureAndEstimate
-                              : null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                _capturedImage == null && _faces.isNotEmpty
-                                    ? Colors.blue
-                                    : Colors.grey,
-                            foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 32, vertical: 16),
-                            minimumSize: Size(200, 50),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    if (_capturedImage == null) ...[
+                      if (_faces.isEmpty)
+                        Text(
+                          "Please position your face in the frame",
+                          style: TextStyle(
+                            color: Colors.orange,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
-                          child: _isProcessing
-                              ? const CircularProgressIndicator(
-                                  color: Colors.white)
-                              : const Text('Estimate Age',
-                                  style: TextStyle(fontSize: 18)),
-                        )
-                      : SizedBox.shrink(),
-                  SizedBox(height: _capturedImage == null ? 16 : 0),
-                  if (predictedAgeRange != null) ...[
-                    Text(
-                      'Predicted Age Range:',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[700],
-                      ),
-                    ),
-                    Text(
-                      predictedAgeRange!,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    if (_estimatedAge != null) ...[
-                      const SizedBox(height: 8),
-                      Text(
-                        'Estimated: $_estimatedAge',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color:
-                              (_estimatedAge! < 21) ? Colors.red : Colors.green,
-                          fontWeight: FontWeight.w600,
+                          textAlign: TextAlign.center,
                         ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Screenshot, continue, email it to us',
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                      // Text(
-                      //   (_estimatedAge! < 21)
-                      //       ? 'Under 21 estimated — official ID required.'
-                      //       : '21+ estimated — you can continue.',
-                      //   style: TextStyle(
-                      //     fontSize: 14,
-                      //     color:
-                      //     (_estimatedAge! < 21) ? Colors.red : Colors.green,
-                      //   ),
-                      //   textAlign: TextAlign.center,
-                      // ),
+                      if (_faces.isNotEmpty)
+                        Text(
+                          "Face detected! Ready to estimate age",
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                     ],
                     const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              _capturedImage = null;
-                              predictedAgeRange = null;
-                              _estimatedAge = null;
-                              _faces.clear();
-                              _faceDetectionPaused = false;
-                              _startFaceDetection(); // restart camera
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Text('Try Again'),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            final imageFile =
-                                await screenshotController.capture();
-                            if (imageFile != null) {
-                              final directory =
-                                  await getApplicationDocumentsDirectory();
-                              final imagePath =
-                                  '${directory.path}/age_verification.png';
-                              final file = File(imagePath);
-                              await file.writeAsBytes(imageFile);
-                              print('Screenshot saved at $imagePath');
-                              _showAlertDialogue(file, imageFile);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content:
-                                        Text("Failed to capture screenshot.")),
-                              );
-                            }
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(25),
-                              gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: predictedAgeRange != null
-                                    ? [
-                                        primaryColor.withOpacity(.5),
-                                        primaryColor.withOpacity(.8),
-                                        primaryColor,
-                                        primaryColor,
-                                      ]
-                                    : [white, white],
-                              ), // No gradient if username is empty
-                              color: predictedAgeRange == null
-                                  ? secondryColor
-                                  : primaryColor, // Fallback color for empty username
+                    _capturedImage == null
+                        ? ElevatedButton(
+                            onPressed: _modelLoaded &&
+                                    !_isProcessing &&
+                                    _faces.isNotEmpty
+                                ? _captureAndEstimate
+                                : null,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  _capturedImage == null && _faces.isNotEmpty
+                                      ? Colors.blue
+                                      : Colors.grey,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 32, vertical: 16),
+                              minimumSize: Size(200, 50),
                             ),
-                            height: MediaQuery.of(context).size.height * .052,
-                            width: MediaQuery.of(context).size.width * .35,
-                            child: Center(
-                              child: Text(
-                                "Email It To Us".tr().toString(),
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: predictedAgeRange != null
-                                      ? white
-                                      : secondryColor,
-                                  fontWeight: FontWeight.bold,
+                            child: _isProcessing
+                                ? const CircularProgressIndicator(
+                                    color: Colors.white)
+                                : const Text('Estimate Age',
+                                    style: TextStyle(fontSize: 18)),
+                          )
+                        : SizedBox.shrink(),
+                    SizedBox(height: _capturedImage == null ? 16 : 0),
+                    if (predictedAgeRange != null) ...[
+                      Text(
+                        'Predicted Age Range:',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                      Text(
+                        predictedAgeRange!,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      if (_estimatedAge != null) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          'Estimated: $_estimatedAge',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color:
+                                (_estimatedAge! < 21) ? Colors.red : Colors.green,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Screenshot, continue, email it to us',
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                        // Text(
+                        //   (_estimatedAge! < 21)
+                        //       ? 'Under 21 estimated — official ID required.'
+                        //       : '21+ estimated — you can continue.',
+                        //   style: TextStyle(
+                        //     fontSize: 14,
+                        //     color:
+                        //     (_estimatedAge! < 21) ? Colors.red : Colors.green,
+                        //   ),
+                        //   textAlign: TextAlign.center,
+                        // ),
+                      ],
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                _capturedImage = null;
+                                predictedAgeRange = null;
+                                _estimatedAge = null;
+                                _faces.clear();
+                                _faceDetectionPaused = false;
+                                _startFaceDetection(); // restart camera
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              foregroundColor: Colors.white,
+                            ),
+                            child: const Text('Try Again'),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              final imageFile =
+                                  await screenshotController.capture();
+                              if (imageFile != null) {
+                                final directory =
+                                    await getApplicationDocumentsDirectory();
+                                final imagePath =
+                                    '${directory.path}/age_verification.png';
+                                final file = File(imagePath);
+                                await file.writeAsBytes(imageFile);
+                                print('Screenshot saved at $imagePath');
+                                _showAlertDialogue(file, imageFile);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text("Failed to capture screenshot.")),
+                                );
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(25),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: predictedAgeRange != null
+                                      ? [
+                                          primaryColor.withOpacity(.5),
+                                          primaryColor.withOpacity(.8),
+                                          primaryColor,
+                                          primaryColor,
+                                        ]
+                                      : [white, white],
+                                ), // No gradient if username is empty
+                                color: predictedAgeRange == null
+                                    ? secondryColor
+                                    : primaryColor, // Fallback color for empty username
+                              ),
+                              height: MediaQuery.of(context).size.height * .052,
+                              width: MediaQuery.of(context).size.width * .35,
+                              child: Center(
+                                child: Text(
+                                  "Email It To Us".tr().toString(),
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: predictedAgeRange != null
+                                        ? white
+                                        : secondryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                    ],
+                    if (!_modelLoaded)
+                      const Text(
+                        "Loading age model...",
+                        style: TextStyle(color: Colors.orange),
+                      ),
                   ],
-                  if (!_modelLoaded)
-                    const Text(
-                      "Loading age model...",
-                      style: TextStyle(color: Colors.orange),
-                    ),
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
