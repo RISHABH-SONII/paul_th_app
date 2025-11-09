@@ -240,19 +240,34 @@ int maxUploadMB = 50;
 int maxUploadSecond = 360;
 const int paginationLimit = 5;
 
+// final List<Map<String, dynamic>> interestList = [
+//   {'name': 'Gaming', 'emoji': '🎮', 'ontap': false, 'color': Colors.redAccent},
+//   {'name': 'Dancing', 'emoji': '💃', 'ontap': false, 'color': Colors.blueAccent},
+//   {'name': 'Language', 'emoji': '🌐', 'ontap': false, 'color': Colors.greenAccent},
+//   {'name': 'Music', 'emoji': '🎵', 'ontap': false, 'color': Colors.purpleAccent},
+//   {'name': 'Movie', 'emoji': '🎬', 'ontap': false, 'color': Colors.orangeAccent},
+//   {'name': 'Photography', 'emoji': '📷', 'ontap': false, 'color': Colors.pinkAccent},
+//   {'name': 'Architecture', 'emoji': '🏛️', 'ontap': false, 'color': Colors.tealAccent},
+//   {'name': 'Fashion', 'emoji': '👗', 'ontap': false, 'color': Colors.indigoAccent},
+//   {'name': 'Books', 'emoji': '📚', 'ontap': false, 'color': Colors.amberAccent},
+//   {'name': 'Animals', 'emoji': '🐾', 'ontap': false, 'color': Colors.cyanAccent},
+//   {'name': 'Fitness', 'emoji': '💪', 'ontap': false, 'color': Colors.deepOrangeAccent},
+//   {'name': 'Writing', 'emoji': '✍️', 'ontap': false, 'color': Colors.lightGreenAccent},
+// ];
+
 final List<Map<String, dynamic>> interestList = [
-  {'name': 'Gaming', 'emoji': '🎮', 'ontap': false, 'color': Colors.redAccent},
-  {'name': 'Dancing', 'emoji': '💃', 'ontap': false, 'color': Colors.blueAccent},
-  {'name': 'Language', 'emoji': '🌐', 'ontap': false, 'color': Colors.greenAccent},
-  {'name': 'Music', 'emoji': '🎵', 'ontap': false, 'color': Colors.purpleAccent},
-  {'name': 'Movie', 'emoji': '🎬', 'ontap': false, 'color': Colors.orangeAccent},
-  {'name': 'Photography', 'emoji': '📷', 'ontap': false, 'color': Colors.pinkAccent},
-  {'name': 'Architecture', 'emoji': '🏛️', 'ontap': false, 'color': Colors.tealAccent},
-  {'name': 'Fashion', 'emoji': '👗', 'ontap': false, 'color': Colors.indigoAccent},
-  {'name': 'Books', 'emoji': '📚', 'ontap': false, 'color': Colors.amberAccent},
-  {'name': 'Animals', 'emoji': '🐾', 'ontap': false, 'color': Colors.cyanAccent},
-  {'name': 'Fitness', 'emoji': '💪', 'ontap': false, 'color': Colors.deepOrangeAccent},
-  {'name': 'Writing', 'emoji': '✍️', 'ontap': false, 'color': Colors.lightGreenAccent},
+  {'name': 'Vanilla', 'emoji': '🍦', 'ontap': false, 'color': Colors.redAccent},
+  {'name': 'Rough', 'emoji': '👊', 'ontap': false, 'color': Colors.blueAccent},
+  {'name': 'Bottom', 'emoji': '🍑', 'ontap': false, 'color': Colors.greenAccent},
+  {'name': 'Top', 'emoji': '🍆', 'ontap': false, 'color': Colors.purpleAccent},
+  {'name': 'Oral', 'emoji': '💋', 'ontap': false, 'color': Colors.orangeAccent},
+  {'name': 'Bondage', 'emoji': '⛓️', 'ontap': false, 'color': Colors.pinkAccent},
+  {'name': 'Kink', 'emoji': '🐭', 'ontap': false, 'color': Colors.tealAccent},
+  {'name': 'Leather', 'emoji': '🐂', 'ontap': false, 'color': Colors.indigoAccent},
+  {'name': 'Rubber', 'emoji': '🍀', 'ontap': false, 'color': Colors.amberAccent},
+  {'name': 'Wool', 'emoji': '🐑', 'ontap': false, 'color': Colors.cyanAccent},
+  {'name': 'Rimming', 'emoji': '💩', 'ontap': false, 'color': Colors.deepOrangeAccent},
+  {'name': 'Role Play', 'emoji': '🎭', 'ontap': false, 'color': Colors.lightGreenAccent},
 ];
 
 List<Map<String, dynamic>> updateInterestList(

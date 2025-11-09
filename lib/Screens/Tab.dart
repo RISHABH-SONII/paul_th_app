@@ -438,6 +438,7 @@ class TabbarState extends State<Tabbar> with SingleTickerProviderStateMixin {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: SafeArea(
+        top: false,
         child: Scaffold(
           appBar: AppBar(
             elevation: 0,

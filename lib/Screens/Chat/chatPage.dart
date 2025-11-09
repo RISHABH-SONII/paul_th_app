@@ -246,181 +246,184 @@ class _ChatPageState extends State<ChatPage> {
       // var istyping = appController.typinrooms.contains(appController.room.value!.id);
       var istyping = appController.room.value != null &&
           appController.typinrooms.contains(appController.room.value!.id);
-      return Scaffold(
-        key: _scaffoldKey,
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-            backgroundColor: white,
-            elevation: 0,
-            title: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            Info(widget.second, widget.sender, null, null)));
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(widget.second.name!),
-                  Text(
-                    istyping
-                        ? "Typing..."
-                        : appController.onlineUsers.any(
-                                (element) => element.id == widget.second.iid)
-                            ? "Online"
-                            : "Last seen ${getmesssageDate(widget.second.lastOnline.toString())}",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: istyping ? greenColor : Colors.black),
-                  ),
-                ],
+      return SafeArea(
+        top: false,
+        child: Scaffold(
+          key: _scaffoldKey,
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+              backgroundColor: white,
+              elevation: 0,
+              title: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Info(widget.second, widget.sender, null, null)));
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.second.name!),
+                    Text(
+                      istyping
+                          ? "Typing..."
+                          : appController.onlineUsers.any(
+                                  (element) => element.id == widget.second.iid)
+                              ? "Online"
+                              : "Last seen ${getmesssageDate(widget.second.lastOnline.toString())}",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: istyping ? greenColor : Colors.black),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios),
-              color: Colors.black,
-              onPressed: () => Navigator.pop(context),
-            ),
-            actions: <Widget>[
-              GestureDetector(
-                  onTap: () {
-                    _showCurrencyDialog(context);
-                  },
-                  child: Image.asset(
-                    "asset/icons/giftbox.png", /*height: 16,width: 16,*/
-                  )),
-              IconButton(
-                  icon: Icon(
-                    Icons.call,
-                    color: blackColor,
-                  ),
-                  onPressed: () {
-                    onJoin("AudioCall");
-                  }),
-              IconButton(
-                  icon: Icon(Icons.video_call, color: blackColor),
-                  onPressed: () {
-                    onJoin("VideoCall");
-                  }),
-              PopupMenuButton(itemBuilder: (ct) {
-                return [
-                  PopupMenuItem(
-                    value: 'value1',
-                    child: InkWell(
-                      onTap: () => showDialog(
-                          barrierDismissible: true,
-                          context: context,
-                          builder: (context) => ReportUser(
-                                currentUser: widget.sender,
-                                seconduser: widget.second,
-                              )).then((value) => Navigator.pop(ct)),
-                      child: Container(
-                          width: 100,
-                          height: 30,
-                          child: Text(
-                            el.tr("Report"),
-                          )),
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                color: Colors.black,
+                onPressed: () => Navigator.pop(context),
+              ),
+              actions: <Widget>[
+                GestureDetector(
+                    onTap: () {
+                      _showCurrencyDialog(context);
+                    },
+                    child: Image.asset(
+                      "asset/icons/giftbox.png", /*height: 16,width: 16,*/
+                    )),
+                IconButton(
+                    icon: Icon(
+                      Icons.call,
+                      color: blackColor,
                     ),
-                  ),
-                  PopupMenuItem(
-                    height: 30,
-                    value: 'value2',
-                    child: InkWell(
-                      child: Text(isBlocked ? "Unblock user" : "Block user"),
-                      onTap: () {
-                        Navigator.pop(ct);
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext ctx) {
-                            return AlertDialog(
-                              backgroundColor: whiteColor,
-                              title: Text(isBlocked ? 'Unblock' : 'Block'),
-                              content: Text('Do you want to ').tr(args: [
-                                "${isBlocked ? 'Unblock' : 'Block'}",
-                                "${widget.second.name}"
-                              ]),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.of(context).pop(false),
-                                  child: Text(el.tr('No')),
-                                ),
-                                TextButton(
-                                  onPressed: () async {
-                                    Navigator.pop(ctx);
-                                    // if (isBlocked &&
-                                    //     blockedBy == widget.sender.id) {
-                                    //   chatReference.doc('blocked').set({
-                                    //     'isBlocked': !isBlocked,
-                                    //     'blockedBy': widget.sender.id,
-                                    //   }, SetOptions(merge: true));
-                                    // } else if (!isBlocked) {
-                                    //   chatReference.doc('blocked').set({
-                                    //     'isBlocked': !isBlocked,
-                                    //     'blockedBy': widget.sender.id,
-                                    //   }, SetOptions(merge: true));
-                                    // } else {
-                                    //   CustomSnackbar.snackbar(
-                                    //       "You can't unblock".tr().toString(),
-                                    //       context);
-                                    // }
-                                  },
-                                  child: Text(el.tr('Yes')),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
+                    onPressed: () {
+                      onJoin("AudioCall");
+                    }),
+                IconButton(
+                    icon: Icon(Icons.video_call, color: blackColor),
+                    onPressed: () {
+                      onJoin("VideoCall");
+                    }),
+                PopupMenuButton(itemBuilder: (ct) {
+                  return [
+                    PopupMenuItem(
+                      value: 'value1',
+                      child: InkWell(
+                        onTap: () => showDialog(
+                            barrierDismissible: true,
+                            context: context,
+                            builder: (context) => ReportUser(
+                                  currentUser: widget.sender,
+                                  seconduser: widget.second,
+                                )).then((value) => Navigator.pop(ct)),
+                        child: Container(
+                            width: 100,
+                            height: 30,
+                            child: Text(
+                              el.tr("Report"),
+                            )),
+                      ),
                     ),
-                  )
-                ];
-              })
-            ]),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Scaffold(
-            backgroundColor: white,
-            body: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                      topRight: Radius.circular(50)),
-                  color: Colors.white),
-              padding: EdgeInsets.all(5),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  (!appController.messageloading.value == true)
-                      ? appController.messages.isNotEmpty
-                          ? Expanded(
-                              child: ListView(
-                                reverse: true,
-                                children:
-                                    generateMessages(appController.messages),
-                              ),
-                            )
-                          : startNewDiscussion()
-                      : Container(
-                          height: 15,
-                          width: 15,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation(primaryColor),
-                            strokeWidth: 2,
+                    PopupMenuItem(
+                      height: 30,
+                      value: 'value2',
+                      child: InkWell(
+                        child: Text(isBlocked ? "Unblock user" : "Block user"),
+                        onTap: () {
+                          Navigator.pop(ct);
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext ctx) {
+                              return AlertDialog(
+                                backgroundColor: whiteColor,
+                                title: Text(isBlocked ? 'Unblock' : 'Block'),
+                                content: Text('Do you want to ').tr(args: [
+                                  "${isBlocked ? 'Unblock' : 'Block'}",
+                                  "${widget.second.name}"
+                                ]),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(false),
+                                    child: Text(el.tr('No')),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      Navigator.pop(ctx);
+                                      // if (isBlocked &&
+                                      //     blockedBy == widget.sender.id) {
+                                      //   chatReference.doc('blocked').set({
+                                      //     'isBlocked': !isBlocked,
+                                      //     'blockedBy': widget.sender.id,
+                                      //   }, SetOptions(merge: true));
+                                      // } else if (!isBlocked) {
+                                      //   chatReference.doc('blocked').set({
+                                      //     'isBlocked': !isBlocked,
+                                      //     'blockedBy': widget.sender.id,
+                                      //   }, SetOptions(merge: true));
+                                      // } else {
+                                      //   CustomSnackbar.snackbar(
+                                      //       "You can't unblock".tr().toString(),
+                                      //       context);
+                                      // }
+                                    },
+                                    child: Text(el.tr('Yes')),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    )
+                  ];
+                })
+              ]),
+          body: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Scaffold(
+              backgroundColor: white,
+              body: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(50)),
+                    color: Colors.white),
+                padding: EdgeInsets.all(5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    (!appController.messageloading.value == true)
+                        ? appController.messages.isNotEmpty
+                            ? Expanded(
+                                child: ListView(
+                                  reverse: true,
+                                  children:
+                                      generateMessages(appController.messages),
+                                ),
+                              )
+                            : startNewDiscussion()
+                        : Container(
+                            height: 15,
+                            width: 15,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(primaryColor),
+                              strokeWidth: 2,
+                            ),
                           ),
-                        ),
-                  Divider(height: 1.0),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).cardColor),
-                    child: isBlocked
-                        ? Text(el.tr("Sorry You can't send message!"))
-                        : _buildTextComposer(),
-                  ),
-                ],
+                    Divider(height: 1.0),
+                    Container(
+                      alignment: Alignment.bottomCenter,
+                      decoration:
+                          BoxDecoration(color: Theme.of(context).cardColor),
+                      child: isBlocked
+                          ? Text(el.tr("Sorry You can't send message!"))
+                          : _buildTextComposer(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

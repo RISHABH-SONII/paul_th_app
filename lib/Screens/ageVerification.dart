@@ -236,6 +236,7 @@ class _AgeVerificationScreenState extends State<AgeVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Screenshot(
         controller: screenshotController,
         child: Scaffold(

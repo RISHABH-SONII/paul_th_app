@@ -9,18 +9,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(color: Colors.white),
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Matches(currentUser),
-              RecentChats(currentUser),
-            ],
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(color: Colors.white),
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Matches(currentUser),
+                RecentChats(currentUser),
+              ],
+            ),
           ),
         ),
       ),
